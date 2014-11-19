@@ -18,7 +18,7 @@
     </p>
     <h4>Match Pattern</h4>
 <pre>
-(?&lt;LINE&gt;.+)(\r\n\k&lt;LINE&gt;)+
+(?&lt;LINE&gt;((?!\r|\n).)+)(\r\n\k&lt;LINE&gt;)+(?=\r\n|$)
 </pre>
     <h4>Replace Pattern</h4>
 <pre>
