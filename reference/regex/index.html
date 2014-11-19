@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Regular Expression Reference</title>
+  </head>
+  <body>
+    <h1>Regular Expression Reference</h1>
+    <p>
+      <a href="http://www.regexbuddy.com/" target="_blank">RegexBuddy</a> is a great tool
+      for working with these regular expressions.
+    </p>
+    <h3>Remove Consecutive Duplicate Lines</h3>
+    <p>
+      This regular expression will match a sequence of lines that are identical.
+      The replace pattern will replace all those matched lines with just the first instance
+      of that line (i.e., it will remove duplicates).
+    </p>
+    <h4>Match Pattern</h4>
+<pre>
+(?&lt;LINE&gt;.+)(\r\n\k&lt;LINE&gt;)+
+</pre>
+    <h4>Replace Pattern</h4>
+<pre>
+${LINE}
+</pre>
+    <h4>Sample Input</h4>
+<pre>
+No beer
+and no TV
+make Homer
+something
+something
+</pre>
+    <h4>Sample Output</h4>
+<pre>
+No beer
+and no TV
+make Homer
+something
+</pre>
+  </body>
+</html>
