@@ -9,4 +9,4 @@ Wish List
 Here are some things that would be nice to see in this repository at some point:
 * Responsive Images
 * Sticky Headers
-* <a href="//ryanfait.com/sticky-footer/">Anchored Footers</a>
+* <a href="http://ryanfait.com/sticky-footer/">Anchored Footers</a>
