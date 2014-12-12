@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>IE Detection</title>
+  </head>
+  <body>
+    <h1>IE Detection</h1>
+    <p>
+      You can use the followin JavaScript to detect older versions of Internet Explorer:
+    </p>
+<pre>
+// 10 or older  
+document.all;
+
+// 9  or older
+document.all &amp;&amp; !window.atob;
+
+// 8  or older
+document.all &amp;&amp; !document.addEventListener;
+
+// 7  or older
+document.all &amp;&amp; !document.querySelector;
+
+// 6  or older
+document.all &amp;&amp; !window.XMLHttpRequest;
+
+// 5.x
+document.all &amp;&amp; !document.compatMode;
+</pre>
+    <p>
+      You can download this JavaScript <a href="ie9.detection.js">here</a>.
+    </p>
+  </body>
+</html>
