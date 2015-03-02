@@ -51,7 +51,10 @@
             transition: background-color 0.25s;
             display: block !important;
         }
-        .pager .item.cycle-pager-active {
+        .pager .item:hover {
+            cursor: pointer;
+        }
+        .pager .item.cycle-pager-active, .pager .item:hover {
             background-color: rgba(40, 80, 100, 1);
         }
     </style>
@@ -117,6 +120,7 @@
     <!-- http://jquery.malsup.com/cycle2/ -->
     <script type="text/javascript" src="jquery.cycle2.min.js"></script>
     <script type="text/javascript" src="jquery.cycle2.carousel.min.js"></script>
+    <script type="text/javascript" src="jquery.cycle2.swipe.min.js"></script>
     <!-- https://github.com/imsky/holder -->
     <script type="text/javascript" src="holder.min.js"></script>
 
@@ -144,6 +148,7 @@
 
             // Variables.
             var $cycle = null;
+            var prevWinWidth = 0;
 
 
             // Initialize the carousel.
@@ -173,7 +178,9 @@
                     timeout: 0,
                     pager: ".pager",
                     // Set the pager template empty since we use predefined markup.
-                    pagerTemplate: ""
+                    pagerTemplate: "",
+                    swipe: true,
+                    swipeFx: "carousel"
                 });
 
             };
@@ -181,7 +188,15 @@
 
             // Recreate the carousel on window resize (to center it).
             $(window).on("windowResizeEvery100ms", function () {
-                initCarousel();
+
+                // Only when the change in width is significant.
+                var winWidth = $(window).width();
+                var widthDiff = Math.abs(winWidth - prevWinWidth);
+                if(widthDiff > 20) {
+                    prevWinWidth = winWidth;
+                    initCarousel();
+                }
+
             });
 
         });
