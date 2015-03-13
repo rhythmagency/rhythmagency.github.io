@@ -15,6 +15,8 @@
             float: left;
             white-space: normal;
             overflow: hidden;
+            /* A fix so we don't get additional unexpected height. */
+            line-height: 0;
         }
         .carousel .cycle-carousel-wrap {
             right: -5000px;
@@ -23,10 +25,12 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 4px;
+            bottom: 0;
             padding: 15px;
             background-color: rgba(100, 100, 100, 0.5);
             color: #fff;
+            /* Revert height fix for element with text. */
+            line-height: 1;
         }
         .pager-outer {
             position: relative;
