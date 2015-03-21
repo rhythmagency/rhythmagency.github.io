@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    <style type="text/css">
+
+        /* First, ensure consistency across browsers. */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Next, handle container layout. */
+        .container {
+            width: 100%;
+        }
+        .container:after {
+            display: table;
+            content: " ";
+            clear: both;
+        }
+        @media screen and (min-width: 768px) {
+            .container {
+                max-width: 750px;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media screen and (min-width: 992px) {
+            .container {
+                max-width: 970px;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+            .container {
+                max-width: 1170px;
+            }
+        }
+
+        /* Then, handle basic styles for rows and columns. */
+        @media screen and (min-width: 768px) {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            .row:after {
+                display: table;
+                content: " ";
+                clear: both;
+            }
+            [class^="col-"] {
+                padding-left: 15px;
+                padding-right: 15px;
+                float: left;
+            }
+        }
+
+        /* Finally, handle breakpoint-specific styles for columns.
+           A real grid system would include more combinations. */
+        .col-xs-12 {
+            width: 100%;
+        }
+        @media screen and (min-width: 768px) {
+            .col-sm-6 {
+                width: 50%;
+            }
+            .col-sm-12 {
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 992px) {
+            .col-md-4 {
+                width: 33.33333333%;
+            }
+            .col-md-12 {
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+            .col-lg-3 {
+                width: 25%;
+            }
+            .col-lg-12 {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+    <!-- Some extra colors/layout to help visualize the grid. -->
+    <style type="text/css">
+
+        /* Containers are red. */
+        .container {
+            background-color: rgb(255, 200, 200);
+        }
+
+        /* Rows are blue. */
+        .row {
+            background-color: rgb(200, 200, 255);
+        }
+
+        /* Columns are green. */
+        [class^="col-"] {
+            background-color: rgb(200, 255, 200);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        /* Various heights. */
+        .tall {
+            min-height: 200px;
+        }
+        .medium {
+            min-height: 100px;
+        }
+        .short {
+            min-height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- A container restricts the width to constrain breakpoints to just
+         a few (except on mobile... we need as much space as we can get). It
+         also centers the content. -->
+    <div class="container">
+        <!-- A row serves two purposes:
+             1) Serves as a clearfix to avoid strange layouts with columns
+                of varying height.
+             2) Undoes the left/right margins on the columns, so the columns
+                touch the edge of the container. -->
+        <div class="row">
+            <!-- Columns split content into horizontal sections. The size of
+                 the section can vary depending on screen width. The sizes
+                 xs, sm, md, and lg stand for extra small, small, medium,
+                 and large. Note that columns are also separated by a
+                 "gutter" (a small margin). -->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 tall">
+                A tall column.
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 medium">
+                A medium height column.
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 short">
+                A short column.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                A full-width column in a new row.
+            </div>
+        </div>
+        <div class="row">
+            This is in a row, but outside of any columns.
+        </div>
+        This is in the container, but outside of any rows.
+    </div>
+    <br>
+    This is outside of any containers.<br>
+
+    <!-- Some info about the width in relation to the container/breakpoints. -->
+    The window is <span class="window-width"></span> pixels wide.<br>
+    The container is <span class="container-width"></span> pixels wide.<br>
+    The breakpoint is <span class="breakpoint"></span>.
+
+    <!-- Some JavaScript to show widths. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            function updateWidth() {
+                var width = $(window).width();
+                $(".window-width").text(width.toString());
+                $(".container-width").text($(".container").outerWidth().toString());
+                var size = "extra small (col-xs, 0px-767px)";
+                if (width >= 1200) {
+                    size = "large (col-lg, 1200px+)";
+                } else if (width >= 992) {
+                    size = "medium (col-md, 992px-1199px)";
+                } else if (width >= 768) {
+                    size = "small (col-sm, 768px-991px)";
+                }
+                $(".breakpoint").text(size);
+            }
+            $(window).resize(updateWidth);
+            updateWidth();
+        })();
+    </script>
+
+</body>
+</html>
