@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Non-Rectangular Image Masks</title>
+		<style type="text/css">
+			
+			/* Set the mask on the image. */
+			.svg-image image {
+				clip-path: url(#clip-triangle);
+			}
+			
+			/* Handle image resizing. */
+			.svg-image {
+				width: 100%;
+				height: 1px;
+				// Use padding hack to force a relative height.
+				padding-bottom: 66.666%;
+				overflow: visible;
+			}
+			
+			/* Set a crazy background so we can see where the image is transparent. */
+			body {
+				background: -webkit-linear-gradient(#ccf, #fff);
+				background: -o-linear-gradient(#ccf, #fff);
+				background: -moz-linear-gradient(#ccf, #fff);
+				background: linear-gradient(#ccf, #fff);
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<!-- This is the image. -->
+		<svg class="svg-image" viewbox="0 0 300 200" preserveAspectRatio="xMidYMin slice">
+			<image width="300" height="200" xlink:href="sample.gif" />
+		</svg>
+		
+		<!-- This is the mask. -->
+		<svg>
+			<defs>
+				<clipPath id="clip-triangle" clipPathUnits="objectBoundingBox">
+					<polygon points="0 0, 1 .5, 0 1" />
+				</clipPath>
+			</defs>
+		</svg>
+		
+	</body>
+</html>
