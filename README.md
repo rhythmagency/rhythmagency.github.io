@@ -11,3 +11,4 @@ Here are some things that would be nice to see in this repository at some point:
 * Sticky Headers
 * <a href="http://ryanfait.com/sticky-footer/">Anchored Footers</a>
 * Accordions
+* CSS Transitions
