@@ -7,6 +7,8 @@
     <pre>
 Private access:
     </pre>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <div id="result"></div>
     <script>
       var thingy = (function() {
         var
@@ -21,7 +23,7 @@ Private access:
         };
       })();
       var result = thingy.calc(5, 7);
-      alert(result.toString());
+      $("#result").html(result.toString());
     </script>
   </body>
 </html>
