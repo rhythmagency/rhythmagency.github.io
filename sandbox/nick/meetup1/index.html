@@ -5,7 +5,20 @@
   </head>
   <body>
     <pre>
-
+Private access:
     </pre>
+    <script>
+      var thingy = (function() {
+        var
+          add = function(x, y) {
+            return x + y;
+          },
+          calc = function(x, y) {
+            return add(x, y);
+          };
+      })();
+      var result = thing.calc(5, 7);
+      alert(result.toString());
+    </script>
   </body>
 </html>
