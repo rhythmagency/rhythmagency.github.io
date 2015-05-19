@@ -16,6 +16,9 @@ Private access:
           calc = function(x, y) {
             return add(x, y);
           };
+        return {
+          calc
+        };
       })();
       var result = thingy.calc(5, 7);
       alert(result.toString());
