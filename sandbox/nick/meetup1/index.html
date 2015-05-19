@@ -23,10 +23,10 @@
         
         function updateDrawing() {
           if (x + xd >= maxX || x + xd <= 0) {
-            xd = -xd;
+            xd = -xd * (Math.random() / 10.0 + 0.95);
           }
           if (y + yd >= maxY || y + yd <= 0) {
-            yd = -yd;
+            yd = -yd * (Math.random() / 10.0 + 0.95);
           }
           x = x + xd;
           y = y + yd;
