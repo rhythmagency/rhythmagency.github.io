@@ -7,41 +7,5 @@
     <pre>
 
     </pre>
-    <canvas id="myCanvas" width="200" height="200"></canvas>
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-      $(function() {
-        var $canvas = $("#myCanvas");
-        var canvas = $canvas.get(0);
-        var context = canvas.getContext("2d");
-        var x = 0, y = 0, xd = 2, yd = 2;
-        var maxX = 200;
-        var maxY = 200;
-        
-        setInterval(updateDrawing, 30);
-        updateDrawing();
-        
-        function updateDrawing() {
-          if (x + xd >= maxX || x + xd <= 0) {
-            xd = -xd * (Math.random() / 10.0 + 0.95);
-          }
-          if (y + yd >= maxY || y + yd <= 0) {
-            yd = -yd * (Math.random() / 10.0 + 0.95);
-          }
-          x = x + xd;
-          y = y + yd;
-          context.clearRect(0, 0, 200, 200);
-          drawCircle();
-        }
-        
-        function drawCircle() {
-          context.fillStyle = "#00ff00";
-          context.beginPath();
-          context.arc(x, y, 40, 0, 2 * Math.PI);
-          context.fill();
-        }
-        
-      });
-    </script>
   </body>
 </html>
