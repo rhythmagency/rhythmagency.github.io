@@ -14,12 +14,33 @@
         var $canvas = $("#myCanvas");
         var canvas = $canvas.get(0);
         var context = canvas.getContext("2d");
-        context.fillStyle = "#ff0000";
-        context.fillRect(0, 0, 50, 80);
-        context.fillStyle = "#00ff00";
-        context.beginPath();
-        context.arc(50, 50, 40, 0, 2 * Math.PI);
-        context.fill();
+        var x = 0, y = 0, xd = 1, yd = 1;
+        var maxX = 200;
+        var maxY = 200;
+        
+        setInterval(updateDrawing, 50);
+        updateDrawing();
+        
+        function updateDrawing() {
+          if (x + xd >= maxX || x + xd <= 0) {
+            xd = -xd;
+          }
+          if (y + yd >= maxY + y + yd <= 0) {
+            yd = -yd;
+          }
+          x = x + xd;
+          y = y + yd;
+          context.clearRect(0, 0, context.width, context.height);
+          drawCircle();
+        }
+        
+        function drawCircle() {
+          context.fillStyle = "#00ff00";
+          context.beginPath();
+          context.arc(x, y, 40, 0, 2 * Math.PI);
+          context.fill();
+        }
+        
       });
     </script>
   </body>
