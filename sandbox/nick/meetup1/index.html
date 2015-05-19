@@ -14,11 +14,11 @@
         var $canvas = $("#myCanvas");
         var canvas = $canvas.get(0);
         var context = canvas.getContext("2d");
-        var x = 0, y = 0, xd = 1, yd = 1;
+        var x = 0, y = 0, xd = 2, yd = 2;
         var maxX = 200;
         var maxY = 200;
         
-        setInterval(updateDrawing, 50);
+        setInterval(updateDrawing, 30);
         updateDrawing();
         
         function updateDrawing() {
