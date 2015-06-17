@@ -13,3 +13,4 @@ Here are some things that would be nice to see in this repository at some point:
 * Accordions
 * CSS Transitions
 * Overlay
+* Style Placeholder Text
