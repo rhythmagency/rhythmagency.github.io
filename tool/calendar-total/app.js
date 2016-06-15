@@ -13,6 +13,6 @@ $("#btnCalculate").click(function () {
       total = total + hours;
     }
   }
-  var newText = hours.toString() + " hours";
+  var newText = total.toString() + " hours";
   $("#txtOutput").val(newText);
 });
