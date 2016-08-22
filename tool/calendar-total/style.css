@@ -8,5 +8,5 @@ button {
 img {
   max-width: 50%;
   height: auto;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 0 0 20px #000000;
 }
