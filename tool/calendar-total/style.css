@@ -11,3 +11,7 @@ img {
   height: auto;
   box-shadow: 0 0 20px #000000;
 }
+h2.section-header {
+  margin-top: 80px;
+  border-bottom: 3px solid #000000;
+}
