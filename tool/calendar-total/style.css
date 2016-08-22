@@ -6,7 +6,8 @@ button {
   display: block;
 }
 img {
-  max-width: 50%;
+  width: 600px;
+  max-width: 75%;
   height: auto;
   box-shadow: 0 0 20px #000000;
 }
