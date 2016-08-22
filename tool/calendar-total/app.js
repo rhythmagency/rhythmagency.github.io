@@ -44,9 +44,14 @@ function outputHoursTotalFromTimeRanges(lines){
   $("#txtOutputRange").val(newText);
 }
 
+// Attempts to parse hours in these formats:
+// (1hr)
+// (0.5hr)
+// (SC/2hr)
+// (.25hr)
 function outputHoursTotalFromAmountsInParenthesis(lines){
   var total = 0;
-  var hourRegex = new RegExp("\\([0-9]*(\\.[0-9]+)?hr\\)", "gi");
+  var hourRegex = new RegExp("\\((((?!\\.|[0-9]|\\)).)+)?[0-9]*(\\.[0-9]+)?hr\\)", "gi");
   var numRegex = new RegExp("[0-9]*\\.[0-9]+|[0-9]+", "gi");
   var firstMatch, numMatches, strHours;
   for (var i = 0; i < lines.length; i++) {
