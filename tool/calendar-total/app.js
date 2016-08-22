@@ -49,9 +49,10 @@ function outputHoursTotalFromTimeRanges(lines){
 // (0.5hr)
 // (SC/2hr)
 // (.25hr)
+// (2hr/SC)
 function outputHoursTotalFromAmountsInParenthesis(lines){
   var total = 0;
-  var hourRegex = new RegExp("\\((((?!\\.|[0-9]|\\)).)+)?[0-9]*(\\.[0-9]+)?hr\\)", "gi");
+  var hourRegex = new RegExp("\\((((?!\\.|[0-9]|\\)).)+/)?[0-9]*(\\.[0-9]+)?hr(/((?!\\.|[0-9]|\\)).)+)?\\)", "gi");
   var numRegex = new RegExp("[0-9]*\\.[0-9]+|[0-9]+", "gi");
   var firstMatch, numMatches, strHours;
   for (var i = 0; i < lines.length; i++) {
