@@ -39,5 +39,20 @@ and no TV
 make Homer
 something
 </pre>
+    <h3>Match a Single Paragraph Only</h3>
+    <p>
+      This regular expression will match rich text containing exactly one paragraph.
+      Multiple paragraph tags will not match. Useful if you want to allow the
+      content editor to use a rich text editor, but want to restrict them to a
+      single paragraph.
+    </p>
+    <h4>Match Pattern</h4>
+<pre>
+^&lt;p&gt;((?!&lt;p&gt;).)+$
+</pre>
+    <h4>Sample Input</h4>
+<pre>
+&lt;p&gt;I am &lt;strong&gt;a single&lt;/strong&gt; paragraph.&lt;/p&gt;
+</pre>
   </body>
 </html>
