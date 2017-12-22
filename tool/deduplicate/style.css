@@ -5,3 +5,6 @@ textarea {
 button {
   display: block;
 }
+body {
+  padding-left: 50px;
+}
