@@ -1,0 +1,9 @@
+.grid {
+    display: flex;
+}
+
+.grid__item {
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #aaf;
+}
