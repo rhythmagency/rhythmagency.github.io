@@ -23,7 +23,7 @@ function renderCell(item) {
     return compiled;
 }
 
-function renderResults() {
+function renderGrid() {
     let compiler = new Compiler();
     let items = getData().map(renderCell);
     let compiled = compiler.compile(`
@@ -35,7 +35,7 @@ function renderResults() {
 }
 
 function renderAll() {
-    let results = renderResults();
+    let results = renderGrid();
     document.body.appendChild(results);
 }
 
