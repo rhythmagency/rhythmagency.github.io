@@ -1,20 +1,20 @@
-class Compiler {
+export class Compiler {
     constructor() {
         this.nestedElements = {};
+        this.namedElements = {};
     }
     compile(value) {
         let compiled = document.createRange().createContextualFragment(value);
         let found = compiled.querySelectorAll("[lib-val]");
         found.forEach(x => {
             let attr = x.getAttribute("lib-val");
-            //TODO: Remove attribute.
-            this[attr] = x;
+            x.removeAttribute("lib-val");
+            this.namedElements[attr] = x;
         });
         found = compiled.querySelectorAll("[lib-elements]");
         found.forEach(x => {
             let attr = x.getAttribute("lib-elements");
             let newNode = this.nestedElements[attr];
-            //TODO: Remove attribute.
             x.parentNode.replaceChild(newNode, x);
         });
         return (compiled);
@@ -43,5 +43,14 @@ class Compiler {
         });
         this.nestedElements[key] = fragment;
         return `<div lib-elements="${key}"></div>`;
+    }
+    withBinding() {
+        return {
+            compile: this.compile.bind(this),
+            namedElement: this.namedElement.bind(this),
+            each: this.each.bind(this),
+            nestElements: this.nestElements.bind(this),
+            elements: this.namedElements
+        };
     }
 }
