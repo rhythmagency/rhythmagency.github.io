@@ -1,4 +1,4 @@
-import { Compiler } from "../support/lib.js";
+import { Compiler } from "../../support/lib.js";
 
 /**
  * Renders a cell within the grid.

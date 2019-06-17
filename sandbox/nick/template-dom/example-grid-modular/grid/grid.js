@@ -1,5 +1,5 @@
-import { Compiler } from "../support/lib.js";
-import { getData } from "../support/data.js";
+import { Compiler } from "../../support/lib.js";
+import { getData } from "../../support/data.js";
 import { renderCell } from "./cell.js";
 
 /**
