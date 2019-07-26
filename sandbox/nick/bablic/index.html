@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Translations with Bablic</title>
+    <script src="https://d.bablic.com/snippet/5d3b647f79ec520001b5041f.js?version=3.9"></script>
+  </head>
+  <body>
+    <h1>Testing Translations</h1>
+    <p>
+      This is some English text that should get Translated into Spanish.
+    </p>
+    <ul>
+      <li>I am a list item that should get translated.</li>
+      <li>As am I.</li>
+    </ul>
+    <form>
+      <div>
+        <select>
+          <option>Option Number One</option>
+          <option>Option Number Two</option>
+        </select>
+      </div>
+      <div>
+        <input type="text" placeholder="First Name" />
+      </div>
+    </form>
+    <p id="dynamic"></p>
+    <p id="delayed"></p>
+    <script>
+      (function () {
+
+        // Try setting some text with JavaScript instantly.
+        var dynamic = document.getElementById("dynamic");
+        var dynamicText = "Hello, this is some text that was dynamically injected by JavaScript.";
+        var dynamicNode = document.createTextNode(dynamicText);
+        dynamic.appendChild(dynamicNode);
+
+        // Try setting some text with JavaScript after a few second delay.
+        setTimeout(function () {
+          var delayed = document.getElementById("delayed");
+          var delayedText = "Hello, this is some text that was dynamically injected by JavaScript after a few seconds of delay.";
+          var delayedNode = document.createTextNode(delayedText);
+          delayed.appendChild(delayedNode);
+        }, 5000);
+
+      })();
+    </script>
+  </body>
+</html>
