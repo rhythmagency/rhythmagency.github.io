@@ -4,11 +4,9 @@ let elements = document.querySelectorAll("li");
 // Add event handlers for blur/focus on each navigation item.
 elements.forEach(x => {
     x.addEventListener("blur", function () {
-        console.log("BLUR");
         markActive(x, false);
     });
     x.addEventListener("focus", function () {
-        console.log("FOCUS");
         markActive(x, true);
     });
 });
