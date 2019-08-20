@@ -1,0 +1,10 @@
+ul ul {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+ul > li.active ul {
+    opacity: 1;
+    width: auto;
+    height: auto;
+}
