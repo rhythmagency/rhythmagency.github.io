@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible Navigation</title>
+</head>
+<body>
+    <p>Choose an animal from the below menu. You can use TAB to visit each menu item.</p>
+    <ul>
+        <li tabindex="0">Platypus</li>
+        <li tabindex="0">Kangaroo</li>
+        <li tabindex="0">
+            Cat >
+            <ul>
+                <li tabindex="0">Siamese</li>
+                <li tabindex="0">Persian</li>
+                <li tabindex="0">Sphynx</li>
+            </ul>
+        </li>
+        <li tabindex="0">Whale</li>
+        <li tabindex="0">Pterodactyl</li>
+        <li tabindex="0">
+            Dogs >
+            <ul>
+                <li tabindex="0">Bulldog</li>
+                <li tabindex="0">Poodle</li>
+                <li tabindex="0">Pug</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
