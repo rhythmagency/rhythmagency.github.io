@@ -1,10 +1,40 @@
-ul ul {
+.nav-wrapper {
+    display: flex;
+    justify-content: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-weight: bold;
+}
+ul.nav {
+    display: flex;
+
+}
+ul.nav > li {
+    padding: 20px;
+    background-color: #ddd;
+    margin: 2px;
+    position: relative;
+}
+ul.nav > li ul {
     opacity: 0;
-    width: 0;
     height: 0;
+    position: fixed;
+    top: 88px;
+    width: 80vw;
+    background-color: #ddd;
+    transform: translateX(-50%);
+    left: 50%;
+    overflow: hidden;
 }
 ul > li.active ul {
     opacity: 1;
-    width: auto;
     height: auto;
+}
+ul.nav > li ul > li {
+    padding: 10px;
+}
+ul.nav > li ul > li:not(:first-child) {
+    border-top: 1px dashed #000;
 }
